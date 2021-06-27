@@ -1,0 +1,18 @@
+{% extends 'newapp/hf.html' %}
+
+{% block body_block %}
+
+
+
+<form class="modal-content" method="POST">
+  <h1>
+
+      update Member
+
+  </h1>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" class='btn btn-primary' name="" value="Submit">
+
+</form>
+{% endblock %}

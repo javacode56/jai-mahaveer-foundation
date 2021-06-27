@@ -1,0 +1,28 @@
+{% extends "newapp/hf.html" %}
+{% load staticfiles %}
+
+
+  {% block body_block %}
+  <div class="jumbotron">
+    <h1>Member's Detail</h1>
+    <div class="jumbotron">
+      <div class="jumbotron">
+        <img src="{{user.UserProfileInfo.profile_pic.url}}" alt="">
+      </div>
+
+    <p>User Name: {{user.username}}</p>
+    <p>User Email: {{user.email}}</p>
+    <p>User Ammount: {{user.userprofileinfo.amount}}</p>
+
+
+</div>
+<div class="container">
+    <p>
+      <a class='btn btn-warning' href="{% url 'newapp:update' pk=user.userprofileinfo.pk %}">Update </a>
+
+  </p>
+
+</div>
+
+  </div>
+{% endblock %}

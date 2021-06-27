@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "newapp/hf.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+  <div class='jumbotron'>
+      <form  class="modal-content" method='post' action="{% url 'newapp:user_login' %}">
+        <h1 color="blue">Login Here</h1>
+          {% csrf_token %}
+          <label for="username">Username:</label>
+          <input type="text" name="username" placeholder="Username">
+          <br>
+          <label for="password">Password:</label>
+          <input type="password" name="password" placeholder="password">
+          <br>
+          <input type="submit" name="" class="btn btn-primary" value="Login">
+      </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<!--
+Template Name: Brickary
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html>
+<head>
+<title>Brickary</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static "layout/styles/layout.css" %}" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email],input[type=number] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+h1 {
+  color: blue;
+}
+
+</style>
+
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="topbar" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <div class="fl_left">
+      <ul>
+        <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+        <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+      </ul>
+    </div>
+    <div class="fl_right">
+      <ul>
+        <li><a href="{% url 'newapp:index' %}"><i class="fa fa-lg fa-home"></i></a></li>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="{% url 'newapp:register' %}">Register</a></li>
+        {% if user.is_authenticated %}
+        <a href=""> Welcome: {{user}}!</a>
+        <a href="{% url 'logout' %}" ><i class="fa fa-sign-in"></i> Logout</a>
+        {% else %}
+        <a href="{% url 'newapp:user_login' %}"><i class="fa fa-sign-in"></i> Login</a>
+        {% endif %}
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+{% block body_block %}
+
+    {% endblock %}
+
+
+
+    <div class="wrapper row4 bgded overlay" style="background-image:url({% static 'images/demo/backgrounds/03.png' %} );">
+      <footer id="footer" class="hoc clear">
+        <!-- ################################################################################################ -->
+        <h3 class="heading">Brickary</h3>
+        <nav>
+          <ul class="nospace inline pushright uppercase">
+            <li><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </nav>
+        <ul class="faico clear">
+          <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+          <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </footer>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row5">
+      <div id="copyright" class="hoc clear">
+        <!-- ################################################################################################ -->
+        <p class="fl_left">Copyright &copy; 2016 - All Rights Reserved - <a href="#">Domain Name</a></p>
+        <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+        <!-- ################################################################################################ -->
+      </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+    <!-- JAVASCRIPTS -->
+    <script src= "{% static "layout/scripts/jquery.min.js" %}" >></script>
+    <script src= "{% static "layout/scripts/jquery.backtotop.js" %}" >></script>
+    <script src= "{% static "layout/scripts/jquery.mobilemenu.js" %}" >></script>
+    <script src= "{% static "layout/scripts/jquery.flexslider-min.js" %}" >></script>
+    </body>
+    </html>
